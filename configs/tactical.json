@@ -1,0 +1,46 @@
+{
+  "_comment": "Tactical — 4H Playbook Layer. Selects which playbook (TREND_FOLLOW / MEAN_REVERT / BREAKOUT_WAIT) suits the current 4H context.",
+
+  "warmup_days": 120,
+
+  "ema": {
+    "fast": 20,
+    "mid": 50,
+    "slow": 200
+  },
+
+  "adx": {
+    "period": 14,
+    "trend_on": 25,
+    "range_on": 18
+  },
+
+  "atr": {
+    "period": 14
+  },
+
+  "bollinger": {
+    "period": 20,
+    "std": 2.0,
+    "width_low_pct": 0.04
+  },
+
+  "slope": {
+    "lookback": 6,
+    "min": 0.0010
+  },
+
+  "range": {
+    "lookback": 20,
+    "edge_atr_tol": 0.25,
+    "min_atr": 1.5,
+    "max_atr": 6.0,
+    "max_pct": 0.10
+  },
+
+  "_risk_gating": {
+    "REGIME=CRASH":    "RISK_MODE=OFF",
+    "BIAS=NEUTRAL":    "RISK_MODE=REDUCED (half size)",
+    "default":         "RISK_MODE=NORMAL"
+  }
+}

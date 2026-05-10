@@ -1,0 +1,55 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# Environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Project-specific: large data caches and results are NOT tracked
+DATA_CACHE/
+STRATEGY_DATA/
+results/
+*.csv
+
+# But keep example/sample data
+!tests/fixtures/*.csv
+
+# Environment variables / secrets
+.env
+.env.local
+*.key
+
+# Logs
+*.log
+logs/

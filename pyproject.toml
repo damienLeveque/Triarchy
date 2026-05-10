@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "triarchy"
+version = "0.1.0"
+description = "A three-layer hierarchical systematic trading system for crypto markets."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Damien", email = "you@example.com" }
+]
+keywords = ["trading", "systematic", "backtest", "crypto", "quant", "agentic-ai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial :: Investment",
+]
+
+dependencies = [
+    "pandas>=2.1",
+    "numpy>=1.26",
+    "ccxt>=4.2",
+    "matplotlib>=3.8",
+    "seaborn>=0.13",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.1",
+    "ruff>=0.3",
+    "black>=24.0",
+    "mypy>=1.8",
+    "jupyter>=1.0",
+    "ipykernel>=6.29",
+]
+
+agentic = [
+    "langgraph>=0.2",
+    "pydantic-ai>=0.0.13",
+    "anthropic>=0.34",
+    "langfuse>=2.40",
+]
+
+[project.scripts]
+triarchy = "triarchy.cli:cli"
+
+[project.urls]
+Repository = "https://github.com/your-username/triarchy"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B"]
+ignore = ["E501"]  # Line length handled by formatter, not linter
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=triarchy --cov-report=term-missing"

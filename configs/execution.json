@@ -1,0 +1,33 @@
+{
+  "_comment": "Execution — 1H Trade Layer. Generates entries, stops, and take-profits subject to Maestro+Tactical gating.",
+
+  "warmup_days": 60,
+
+  "indicators": {
+    "ema_fast": 20,
+    "ema_mid": 50,
+    "ema_slow": 200,
+    "atr_period": 14
+  },
+
+  "entry": {
+    "pullback_lookback": 10,
+    "confirm_reclaim": true,
+    "near_ema50_atr_mult": 0.6
+  },
+
+  "risk": {
+    "per_trade_pct": 0.005,
+    "leverage": 1.0,
+    "sl_atr_cap": 1.8,
+    "tp_r_mult": 2.0,
+    "max_hold_bars": 48
+  },
+
+  "costs": {
+    "fee_rate": 0.0004,
+    "slippage_bps": 1.0
+  },
+
+  "starting_equity": 10000.0
+}

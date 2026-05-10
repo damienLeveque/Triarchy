@@ -1,0 +1,39 @@
+{
+  "_comment": "Maestro — 1D Strategic Layer. Determines macro BIAS and REGIME from daily candles.",
+
+  "assets": [
+    "BTC/USDT",
+    "ETH/USDT",
+    "SOL/USDT",
+    "BNB/USDT",
+    "XRP/USDT",
+    "ADA/USDT",
+    "DOGE/USDT",
+    "AVAX/USDT",
+    "LINK/USDT"
+  ],
+
+  "warmup_days": 365,
+
+  "indicators": {
+    "ema_period": 200,
+    "ema_slope_lookback": 5,
+    "ema_slope_min": 0.0005,
+    "adx_period": 14,
+    "adx_threshold_trend": 25,
+    "atr_period": 14,
+    "crash_deviation": 0.20
+  },
+
+  "_bias_rules": {
+    "LONG_ONLY":  "EMA200 sloping up AND price > weekly VWAP AND not CRASH",
+    "SHORT_ONLY": "EMA200 sloping down AND price < weekly VWAP AND not CRASH",
+    "NEUTRAL":    "otherwise"
+  },
+
+  "_regime_rules": {
+    "CRASH":    "distance to EMA200 <= -crash_deviation",
+    "TRENDING": "ADX >= adx_threshold_trend",
+    "RANGING":  "otherwise"
+  }
+}
